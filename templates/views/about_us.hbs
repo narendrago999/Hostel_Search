@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://images.unsplash.com/photo-1650721872871-da0d8c4895a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" />
+    <link rel="shortcut icon" href="./titlelogo.png" />
+    <title>Our Team</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:weight@100;300;400;700;900&display=swap');
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .team-section {
+            width: 100%;
+        }
+        
+        .team-section .container {
+            width: 80%;
+            margin: auto;
+        }
+        
+        .team-section .container .row {
+            width: 80%;
+            margin: auto;
+        }
+        
+        .team-section .container .row .title {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .team-section .container .row .title h1 {
+            font-size: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #eb6234;
+        }
+        
+        .team-section .container .row .title p {
+            font-size: 18px;
+            font-family: sans-serif;
+            margin: 30px 0px;
+            color: #a3a3a3;
+        }
+        
+        .team-section .container .team-card {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .team-section .container .team-card .card {
+            width: 100%;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            cursor: pointer;
+        }
+        
+        .team-section .container .team-card .card:hover {
+            background-color: #f3f3f3;
+            transition: 0.3s;
+        }
+        
+        .team-section .container .team-card .card .image-section {
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+        }
+        .team-section .container .team-card .card .image-section img{
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+        }
+        
+        .team-section .container .team-card .card .content {
+            width: 100%;
+            text-align: center;
+            
+        }
+        
+        .team-section .container .team-card .card .content h3 {
+            font-size: 27px;
+            margin-top: 10px;
+            letter-spacing: 1.5px;
+            color: #639ab8;
+        }
+        
+        .team-section .container .team-card .card .content h4 {
+            font-size: 17px;
+            margin-top: 10px;
+            letter-spacing: 1.5px;
+            color: #6e6e6e;
+        }
+        
+        .team-section .container .team-card .card .content p {
+            font-size: 15px;
+            margin: 16px 0px;
+            line-height: 1.5;
+            color: #6c6c6c;
+        }
+        /* @media screen and (max-width: 900px){
+
+ } */
+        
+        @media screen and (max-width: 900px) {
+            .team-section .container .team-card {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 780px) {
+            .team-section .container .team-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="team-section">
+        <div class="container">
+            <div class="row">
+                <div class="title">
+                    <h1> our team</h1>
+                    <p>HOSTEL SEARCH</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="card">
+                    <div class="image-section">
+                        <img src="https://images.unsplash.com/photo-1650691662020-c90c9d7fa1b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+                    </div>
+                    <div class="content">
+                        <h3>Mohit Bohra</h3>
+                        <h4>mohitbohra002@gmail.com</h4>
+                        <p><u>Web Developer</u></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-section">
+                        <img src="https://images.unsplash.com/photo-1650693506979-b0aee39b4257?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+                    </div>
+                    <div class="content">
+                        <h3>Narendra Godara</h3>
+                        <h4>narendrago999@gmail.com</h4>
+                        <p><u>Web Developer</u></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-section">
+                        <img src="https://images.unsplash.com/photo-1650691583537-0f7842cce754?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+                    </div>
+                    <div class="content">
+                        <h3>Shubham Badiwal</h3>
+                        <h4>shubhambadiwal8520@gmail.com</h4>
+                        <p><u>Graphic Designer</u></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-section">
+                        <img src="https://images.unsplash.com/photo-1650691654089-851120d75ed3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+                    </div>
+                    <div class="content">
+                        <h3>Raghav Arora</h3>
+                        <h4>raghavarora1163@gmail.com</h4>
+                        <p><u>Web Developer</u></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-section">
+                        <img src="https://images.unsplash.com/photo-1650694118063-8b5f5e015b92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+                    </div>
+                    <div class="content">
+                        <h3>Sujata Tanwar</h3>
+                        <h4>sujatatanwar333@gmail.com</h4>
+                        <p><u>Content Writer</u></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-section">
+                        <img src="https://images.unsplash.com/photo-1650693510300-59de3275a002?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+                    </div>
+                    <div class="content">
+                        <h3>Sheetal Soni</h3>
+                        <h4>sheetalsonii071222@gmail.com</h4>
+                        <p><u>Content Writer</u></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

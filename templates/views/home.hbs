@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://images.unsplash.com/photo-1650721872871-da0d8c4895a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" />
+    <title>Search Hostel</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="./titlelogo.png" />
+    <!-- Stylesheet -->
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8ff;
+        }
+        
+        .wrapper {
+            width: 95%;
+            margin: 0 auto;
+            padding-left: 4%;
+        }
+        
+        #search-container {
+            margin: 1em 0;
+        }
+        
+        #search-container input {
+            background-color: transparent;
+            width: 40%;
+            border-bottom: 2px solid #110f29;
+            padding: 1em 0.3em;
+        }
+        
+        #search-container input:focus {
+            border-bottom-color: #6759ff;
+        }
+        
+        #search-container button {
+            padding: 1em 2em;
+            margin-left: 1em;
+            background-color: #6759ff;
+            color: #ffffff;
+            border-radius: 5px;
+            margin-top: 0.5em;
+        }
+        
+        .button-value {
+            border: 2px solid #6759ff;
+            padding: 1em 2.2em;
+            border-radius: 3em;
+            background-color: transparent;
+            color: #6759ff;
+            cursor: pointer;
+        }
+        
+        .active {
+            background-color: #6759ff;
+            color: #ffffff;
+        }
+        
+        #products {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-column-gap: 1.5em;
+            padding: 2em 0;
+        }
+        
+        .card {
+            background-color: #ffffff;
+            max-width: 18em;
+            margin-top: 1em;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+        }
+        
+        .image-container {
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            object-fit: contain;
+            height: 15em;
+        }
+        
+        .container {
+            padding-top: 1em;
+            color: #110f29;
+        }
+        
+        .container h5 {
+            font-weight: 500;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        @media screen and (max-width: 720px) {
+            img {
+                max-width: 100%;
+                object-fit: contain;
+                height: 10em;
+            }
+            .card {
+                max-width: 10em;
+                margin-top: 1em;
+            }
+            #products {
+                grid-template-columns: auto auto;
+                grid-column-gap: 1em;
+            }
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap');
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        nav {
+            width: 100%;
+            height: 75px;
+            background-color: #505d61;
+            line-height: 75px;
+            padding: 0px 100px;
+            position: fixed;
+            z-index: 1;
+        }
+        
+        nav .logo {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+        
+        nav .logo p {
+            float: left;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            float: right;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 0px 32px;
+        }
+        
+        nav ul li a:hover {
+            color: #c0d96f;
+        }
+        
+        nav ul li .active {
+            color: #c0d96f;
+        }
+        .buut{
+            border: 1px solid purple;
+            padding-left: 1%;
+            padding-right: 1%;
+            margin-top: 6%;
+            background-color: #ffffff;
+            color: #6759ff;
+            margin-left: 50%;
+            
+        }
+        .buut:hover{
+            background-color: #6759ff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Hostel Hunt</p>
+        </div>
+        <ul>
+            <li><a href="" class="active">home</a></li>
+            
+            <li><a href="./contact.hbs">Contact us</a></li>
+            <li><a href="./about_us.hbs">Our Team</a></li>
+            <li><a href="./login.hbs">LogOut</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <div class="wrapper">
+        <div id="search-container">
+            <input type="search" id="search-input" placeholder="Search hostel name here.." />
+            <button id="search">Search</button>
+        </div>
+        <div id="buttons">
+            <button class="button-value" onclick="filterProduct('all')">All</button>
+            <button class="button-value" onclick="filterProduct('Boys')">
+          Boys
+        </button>
+            <button class="button-value" onclick="filterProduct('Girls')">
+          Girls
+        </button>
+
+        </div>
+        <div id="products">
+            
+        
+    <!-- Script -->
+    <script>
+        let products = {
+            data: [{
+                productName: "Krishna Hostel",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://images.unsplash.com/photo-1650694273747-dd0a9e5f4ae3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "9352641216"
+            }, {
+                productName: "Khoda Hostel",
+                category: "Boys",
+                price: "4000 per month/ per bed 2000",
+                image: "https://images.unsplash.com/photo-1650694277664-692a3f56405a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                AC: "Available",
+                Rooms: "Available",
+                Contact: "8565458569"
+            }, {
+                productName: "Mehar Appartments",
+                category: "Girls",
+                price: "6000 per month",
+                image: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "9856332655"
+            }, {
+                productName: "Gokul Residency",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://ak1.picdn.net/shutterstock/videos/18868091/thumb/1.jpg",
+                AC: "Unavailable",
+                Rooms: "Full",
+                Contact: "9689874562"
+
+            }, {
+                productName: "Panwar Residency",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Unavailable",
+                Rooms: "Full",
+                Contact: "9689874558"
+            }, {
+                productName: "Spoton",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "9869874562"
+            }, {
+                productName: "Adonish",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "9639874562"
+            }, {
+                productName: "Sharma Hostel",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Unavailable",
+                Rooms: "Full",
+                Contact: "9959874562"
+
+            }, {
+                productName: "Ayodhya",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Unavailable",
+                Rooms: "Full",
+                Contact: "9529874562"
+            }, {
+                productName: "Vrindavan",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "8759874562"
+            }, {
+                productName: "keshervilla",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Unavailable",
+                Rooms: "Full",
+                Contact: "9852874562"
+            }, {
+                productName: "Girls Hostel",
+                category: "Girls",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "9689874562"
+            }, {
+                productName: "Shree Hostel",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Unavailable",
+                Rooms: "Full",
+                Contact: "9689874562"
+            }, {
+                productName: "College Hostel",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "5689874562"
+            }, {
+                productName: "Rav Hostel",
+                category: "Boys",
+                price: "6000 per month",
+                image: "https://cdn-icons.flaticon.com/png/128/2098/premium/2098316.png?token=exp=1650592566~hmac=0f5243bf58f53b0a8283eb3f554009de",
+                AC: "Available",
+                Rooms: "Full",
+                Contact: "9689874562"
+            }, ],
+        };
+        for (let i of products.data) {
+            //Create Card
+            let card = document.createElement("div");
+            //Card should have category and should stay hidden initially
+            card.classList.add("card", i.category, "hide");
+            //image div
+            let imgContainer = document.createElement("div");
+            imgContainer.classList.add("image-container");
+            //img tag
+            let image = document.createElement("img");
+            image.setAttribute("src", i.image);
+            imgContainer.appendChild(image);
+            card.appendChild(imgContainer);
+            //container
+            let container = document.createElement("div");
+            container.classList.add("container");
+            //product name
+            let name = document.createElement("h5");
+            name.classList.add("product-name");
+            name.innerText = i.productName.toUpperCase();
+            container.appendChild(name);
+            //price
+            let price = document.createElement("h6");
+            price.innerText = "Rs." + i.price;
+            container.appendChild(price);
+            let AC = document.createElement("h6");
+            AC.innerText = "AC:  " + i.AC;
+            container.appendChild(AC);
+
+            let Rooms = document.createElement("h6");
+            Rooms.innerText = "Rooms:  " + i.Rooms;
+            container.appendChild(Rooms);
+
+             let Contact = document.createElement("h6");
+            Contact.innerText = "Contact:  " + i.Contact;
+            container.appendChild(Contact);
+
+            let btn = document.createElement("button");
+            btn.classList.add("buut");
+            btn.innerText = "more details -->";
+            btn.onclick = function(){
+               alert("Contact on 9352641216");
+            }
+
+            
+            document.body.appendChild(btn)
+            container.appendChild(btn);
+
+           
+
+            card.appendChild(container);
+            document.getElementById("products").appendChild(card);
+        }
+        //parameter passed from button (Parameter same as category)
+        function filterProduct(value) {
+            //Button class code
+            let buttons = document.querySelectorAll(".button-value");
+            buttons.forEach((button) => {
+                //check if value equals innerText
+                if (value.toUpperCase() == button.innerText.toUpperCase()) {
+                    button.classList.add("active");
+                } else {
+                    button.classList.remove("active");
+                }
+            });
+            //select all cards
+            let elements = document.querySelectorAll(".card");
+            //loop through all cards
+            elements.forEach((element) => {
+                //display all cards on 'all' button click
+                if (value == "all") {
+                    element.classList.remove("hide");
+                } else {
+                    //Check if element contains category class
+                    if (element.classList.contains(value)) {
+                        //display element based on category
+                        element.classList.remove("hide");
+                    } else {
+                        //hide other elements
+                        element.classList.add("hide");
+                    }
+                }
+            });
+        }
+       
+        //Search button click
+        document.getElementById("search").addEventListener("click", () => {
+            //initializations
+            let searchInput = document.getElementById("search-input").value;
+            let elements = document.querySelectorAll(".product-name");
+            let cards = document.querySelectorAll(".card");
+            //loop through all elements
+            elements.forEach((element, index) => {
+                //check if text includes the search value
+                if (element.innerText.includes(searchInput.toUpperCase())) {
+                    //display matching card
+                    cards[index].classList.remove("hide");
+                } else {
+                    //hide others
+                    cards[index].classList.add("hide");
+                }
+            });
+        });
+        //Initially display all products
+        window.onload = () => {
+            filterProduct("all");
+        };
+    </script>
+</body>
+
+</html>
